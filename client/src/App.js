@@ -1,10 +1,18 @@
 import './App.css';
+import { AppRouters } from './components/routers/AppRouters';
+import {Provider} from 'react-redux'
+import {store} from './store/store'
+
 
 function App() {
   return (
+    <Provider store={store}>
+      
     <div className="App">
-      <h1>Henry Countries</h1>
+
+    <AppRouters/>
     </div>
+    </Provider>
   );
 }
 
