@@ -1,0 +1,118 @@
+
+
+.detail_container {
+
+    background-image: url('../../img/detailL.jpg');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+}
+.detailLink {
+
+	background-color: #347dec;
+	border: 2px solid #347dec;
+	border-radius: 4px;
+	color: #fff;
+	display: block;
+	text-align: center;
+	font-size: 15px;
+	padding: 10px;
+	margin-bottom: 30px;
+	width: 30%;
+    text-decoration: none;
+	
+}
+
+.detail_card{
+
+    padding-top: 30px;
+    background-color: white;
+    height:70%;
+    width: 40%;
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.75);
+    display: flex;
+    flex-direction: column;
+    align-items:center;  
+    border-radius: 5px;
+}
+
+
+.detail_card img{
+    
+    margin-top: 18px;
+    border-radius: 10px;
+    height:36%;
+    box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+    object-fit: cover;
+    margin-bottom: 10px;
+
+}
+
+.detail_card span{
+    margin-right: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 8px;
+    
+}
+
+.detail_card p{
+
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 12px;
+
+}
+
+.info_detail{
+
+    height:50%;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.info_detail div{
+    margin-left: 18px;;
+    width:80%;
+    height:80%;
+    padding-top: 10px;
+  //  background-color: #347dec;
+
+}
+
+.txt{
+    text-align: center;
+    font-weight: 900;
+
+}
+table {
+    border-collapse: collapse;
+    text-align: left;
+
+}
+table tr {
+    background: white;
+    border-bottom: 1px solid rgb(223, 219, 219)
+}
+table th, table td {
+    padding: 10px 20px;
+    font-size: 12px;
+}
+
+
+
+
+
+

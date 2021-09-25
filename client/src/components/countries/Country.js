@@ -2,8 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 
-
-
 export const Country = ({name, image, id, continent, population }) => {
 
 
@@ -17,8 +15,8 @@ export const Country = ({name, image, id, continent, population }) => {
                     <div className="info">
                             <h2 className="name">{name}</h2>
                         <div className="content">
-                            <p className="text"><span className="span">Continente:</span>  {continent}</p>                        
-                            <p className="text"><span className="span"> Poblacion:</span>  {population}</p>
+                            <p className="text"><span className="span">Codigo pais: </span>  {id}</p>                        
+                            <p className="text"><span className="span">Continente:</span>  {continent}</p>
                         </div>                    
                     </div>
                 </div>

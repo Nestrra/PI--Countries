@@ -1,8 +1,22 @@
 .nav-bar{
     display:flex;
+    justify-content: center;
     align-items:center;
     flex-direction: row;
     height: 90px;    
-    background-color:  rgb(178, 178, 238);
+    background-color:  white;
     
+}
+
+.btn-CreateA{
+
+    height: 49px;
+    margin-left: 80px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: rgb(207, 203, 203) 1px solid;
+    width: 120px;
+    cursor: pointer;
+    background-color:#f3eded;
+
 }

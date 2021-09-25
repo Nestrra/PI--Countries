@@ -1,15 +1,21 @@
 import React from 'react'
-import {Nav} from '../nav/Nav'
+
+
 import {CountryList} from './CountryList'
+import {Sidebar} from '../sideBar/Sidebar'
 
 
 export const CountriesScreen = () => {
     
 
     return (
-        <div>
-            <Nav/>
-            <CountryList/>        
+        <div className = "countries_main-content">
+            
+            <Sidebar/>
+          <main>
+                    
+                    <CountryList/>
+           </main>        
         </div>
     )
 }
