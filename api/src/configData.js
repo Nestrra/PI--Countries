@@ -10,10 +10,10 @@ async function insertDataCountries(req, res) {
       //Hacemos la solicitud a la api
       const url = 'https://restcountries.com/v2/all'
       const resApi = await axios.get(url);
-     
+    
       //extraemos datos que necesitamos para llenar base de datos
       const getDataApi = resApi.data.map((e) => {
-       
+      
         return {
 
           id: e.alpha3Code,

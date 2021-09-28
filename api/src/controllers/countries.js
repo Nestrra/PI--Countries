@@ -1,36 +1,36 @@
-const {Country, TouristActivity} = require('../db')
+const { Country, TouristActivity } = require('../db')
 const { Sequelize } = require("sequelize");
 const Op = Sequelize.Op;
 
 
-const getAllCountries  = async (req, res) => {
+const getAllCountries = async (req, res) => {
 
-    const {name} = req.query;
-    console.log(name)
+    const { name } = req.query;
+
 
     try {
-    
-        if(!name){
+
+        if (!name) {
             const countries = await Country.findAll({
                 include: TouristActivity,
             });
             res.status(200).json(countries)
 
-        }else{
+        } else {
 
             const countriesN = await Country.findAll({
-            
-                where:{
-                    name:{
+
+                where: {
+                    name: {
                         [Op.iLike]: `%${name}%`
                     }
                 },
                 include: TouristActivity,
-                });
-            console.log(countriesN)
+            });
 
-            if(!countriesN[0]){
-            
+
+            if (!countriesN[0]) {
+
                 res.status(404).send('No hay paises relacionados con el parametro de busqueda')
 
 
@@ -41,29 +41,38 @@ const getAllCountries  = async (req, res) => {
         }
 
     } catch (error) {
-        res.send(error)
+        res.send(error);
     }
 
 }
 
-const getCountryId = async (req, res)=>{
+const getCountryId = async (req, res) => {
 
-    const idCountry = req.params.idCountry.toUpperCase();
-        console.log(idCountry);
 
-    const country = await Country.findOne({ 
-        where:{
-            id:idCountry
-        },
-        include: TouristActivity,
-    })
+    try {
 
-    res.json(country);
+        const idCountry = req.params.idCountry.toUpperCase();
+
+
+        const country = await Country.findOne({
+            where: {
+                id: idCountry
+            },
+            include: TouristActivity,
+        })
+        
+        res.json(country);
+
+    } catch (error) {
+        
+        res.send(error);
+
+    }  
 
 }
 
 
-module.exports ={ 
+module.exports = {
 
     getAllCountries,
     getCountryId,

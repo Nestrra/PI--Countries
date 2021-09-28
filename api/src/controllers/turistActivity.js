@@ -23,12 +23,12 @@ const createActivity = async (req, res)=>{
                 id: countryId
             }
         })
-        console.log(country)
+        
         activity.addCountry(country)
     
     res.send(activity);
-    console.log(activity)
- 
+    
+
     } catch (error) {
         res.send(error)
     } 
