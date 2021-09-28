@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { filterContinente, fetchCountries, orderAz, orderZa, orderPopulationAsc, orderPopulationDes } from '../../actions/Actions'
 import { Link } from "react-router-dom";
 
 
 export const Sidebar = () => {
-    const {countries} = useSelector((state) => state.getCountries);
-    console.log('actividades',countries.touristActivities)
-    console.log(countries)
+  
     const [continent, setContinent] = useState(" ");
 
 
@@ -63,21 +61,18 @@ export const Sidebar = () => {
                 </div>
                 <div className="select_sidebar">
                     <select
-                        onChange={handleSelect}
+                        onChange={handleSelect} >
 
-                    >
-                    
                         <option value="todos">Todos</option>
                         <option value="Asia">Asia</option>
                         <option value="Americas">Americas</option>
                         <option value="Africa">Africa</option>
                         <option value="Europe">Europa</option>
                         <option value="Oceania">Oceania</option>
+                        <option value="Polar">Polar</option>
 
                     </select>
                 </div>
-            
-
                 <hr></hr>
                 <div className="title">
                     <p>Ordenar Por nombre:</p>

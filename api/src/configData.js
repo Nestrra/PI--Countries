@@ -1,53 +1,49 @@
-
+const countries = require('./countries.json')
 const axios = require('axios');
-const { Country } = require('./db')
+const { Country } = require('./db');
+const e = require('express');
 
 
 
-async function insertDataCountries(req, res) {
+async function insertDataCountries() {
   try {
     {
-      //Hacemos la solicitud a la api
-      const url = 'https://restcountries.com/v2/all'
-      const resApi = await axios.get(url);
+      // //Hacemos la solicitud a la api
+      // const url = 'https://restcountries.com/v2/all'
+      // const resApi = await axios.get(url);
     
-      //extraemos datos que necesitamos para llenar base de datos
-      const getDataApi = resApi.data.map((e) => {
-      
-        return {
+      // //extraemos datos que necesitamos para llenar base de datos
+      // const getDataApi = resApi.data.map((e) => {
+      const countriesA =  countries.map(e =>{
+          
+                    
+          return {
 
           id: e.alpha3Code,
           name: e.name,
-          image: e.flags[0],
-          continent: e.continent,
+          image: e.flag,
+          continent: e.region,
           capital: e.capital,
-          subregion: e.region,
+          subregion: e.subregion,
           area: e.area,
           population: e.population,
 
         };
-      });
+      }
+      
+      )   
 
-      //llenamos la base de datos con la informacoin de la API
+      
+        for(const c of countriesA ){
 
-      getDataApi.forEach(async (e) => {
-        await Country.findOrCreate({
-          where: {
+              await Country.create(c)
 
-            id: e.id,
-            name: e.name,
-            image: e.image,
-            continent: e.continent,
-            capital: e.capital,
-            subregion: e.subregion,
-            area: e.area,
-            population: e.population,
-          },
-        });
-      });
+
+        }
+    
     }
   } catch (error) {
-    res.send(error);
+  
   }
 }
 

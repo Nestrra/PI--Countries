@@ -18,8 +18,7 @@ export const FormActivity = () => {
 		season: "",
 		countryId: []
 
-	})
-	console.log(formSate)
+	})	
 
 
 	useEffect(() => {
@@ -29,16 +28,43 @@ export const FormActivity = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		alert("Current created activity ")
-		await axios.post("http://localhost:3001/activity", formSate);
-		setFormState({
-			name: "",
-			difficulty: "",
-			duration: "",
-			season: "",
-			countryId: null,
-		})
+
+		if(isValid()){
+			alert("Actividad creada correctamente")
+
+			await axios.post("http://localhost:3001/activity", formSate);
+			setFormState({
+				name: "",
+				difficulty: "",
+				duration: "",
+				season: "",
+				countryId: null,
+			})
+		}else{
+			alert("Los campos deben estar completos")
+		}	
 	};
+
+	const isValid = ()=>{
+
+		if(formSate.name.length === 0){
+
+			
+			return false;
+		}else if(formSate.difficulty === 0){
+
+			return false;
+
+		}else if(formSate.duration === 0 ){
+			return false;
+		}else if(formSate.season === 0 ){
+			return false;
+		}else if(formSate.countryId === null){
+			return false
+		}
+			
+			return true
+	}
 
 	const handleInputChange = ({ target }) => {
 
@@ -66,7 +92,7 @@ export const FormActivity = () => {
 					<div className="form-control">
 						<label >Nombre</label>
 						<input type="text" id="name" name="name" onChange={handleInputChange} value={formSate.name} />
-
+						
 						<small>Error message</small>
 					</div>
 					<div className="form-control">
@@ -80,7 +106,7 @@ export const FormActivity = () => {
 							<option value="5">5</option>
 
 						</select>
-						<small>Error message</small>
+						<small>Debe seleccionar un valor</small>
 
 					</div>
 					<div className="form-control">
@@ -92,13 +118,13 @@ export const FormActivity = () => {
 							<option value="Invierno">Invierno</option>
 							<option value="Primavera">Primavera</option>
 						</select>
-						<small>Error message</small>
+						<small>Debe seleccionar una temporada</small>
 					</div>
 
 					<div className="form-control">
 						<label>Duracion</label>
 						<input type="text" id="duracion" name="duration" onChange={handleInputChange} value={formSate.duration} />
-						<small>Error message</small>						
+						<small>Debe ingresar un tiempo entre 1 y 24 </small>						
 					</div>
 
 					<div className="form-control">
@@ -113,14 +139,14 @@ export const FormActivity = () => {
 							{
 								countries?.map((c) => {
 									return (
-										<option value={c.id}>
+										<option key={c.name} value={c.id}>
 											{c.name}
 										</option>
 									)
 								})
 							}
 						</select>
-						<small>Error message</small>
+						<small>Debe seleccionar por lo menos un pais </small>
 					</div>
 
 					<button onClick={handleSubmit}>Crear</button>

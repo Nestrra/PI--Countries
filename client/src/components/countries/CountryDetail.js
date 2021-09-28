@@ -34,58 +34,47 @@ export const CountryDetail = () => {
                         <Link className="detailLink" to="/countries">Regresar al Home</Link>
                         <div className="detail_card">
 
-                            <h2 key={countryDetail.name}>{countryDetail.name}</h2>
+                            <h2 key={countryDetail.id}>{countryDetail.name}</h2>
                             <img src={countryDetail.image} alt="" />
                             <div className="info_detail">
                                 <div>
                                     <h2 className='txt'>Caracteristicas: </h2>
-                                    <p key={countryDetail.id}>  <span key={'1'}>Codigo pais:</span> {countryDetail.id}</p>
-                                    <p key={countryDetail.capital} ><span key={'2'}>Capital:</span> {countryDetail.capital}</p>
-                                    <p key={countryDetail.continent}><span>Continente:</span> {countryDetail.continent}</p>
-                                    <p key={countryDetail.area}> <span key={'3'}>Area:</span> {countryDetail.area}</p>
-                                    <p key={countryDetail.continent}><span>Poblacion:</span> {countryDetail.population}</p>
+                                    <p><span >Codigo pais:</span> {countryDetail.id}</p>
+                                    <p><span >Capital:</span> {countryDetail.capital}</p>
+                                    <p><span>Continente:</span> {countryDetail.continent}</p>
+                                    <p><span>Area:</span> {countryDetail.area}</p>
+                                    <p><span>Poblacion:</span> {countryDetail.population}</p>
                                 </div>
                                 <div className="activity">
                                     <h2 className='txt'>Actividades turisticas: </h2>
-
                                     <table >
-
-                                        <tr>
-                                            <th >Nombre</th>
-                                            <th>Dificultad</th>
-                                            <th>Duracion</th>
-                                            <th>Temporada</th>
-
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <th >Nombre</th>
+                                                <th>Dificultad</th>
+                                                <th>Duracion</th>
+                                                <th>Temporada</th>
+                                            </tr>
+                                        </thead>
                                         {
                                             countryDetail.touristActivities?.map(e => (
-                                                <>
+                                                <tbody key={e.id}>
                                                     <tr>
                                                         <td>{e.name}</td>
                                                         <td>{e.difficulty}</td>
                                                         <td>{e.duration}Hrs </td>
                                                         <td>{e.season}</td>
-
                                                     </tr>
-
-                                                </>
+                                                </tbody>
                                             ))
                                         }
+
                                     </table>
-
-
                                 </div>
-
                             </div>
-
-
                         </div>
-
                     </>
                 )
-
-
-
             }
 
 
