@@ -4,7 +4,7 @@ const initialState = {
     countries: [],
     countryDetail: [],
     countriesBack: [],
-    activities: []
+
 
 }
 
@@ -48,10 +48,10 @@ function getCountries(state = initialState, action) {
             }
         }
         case "FILTER_ACTIVITY": {
-            console.log(state.countries)
+        
             return {
                 ...state,
-                activities: 'hola'
+                countries: state.countries.filter((c)=>{return c.touristActivities.some((a)=> a.name === action.payload)})
             }
         }
         

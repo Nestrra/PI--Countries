@@ -27,7 +27,16 @@
     margin-bottom: 5px;
 
 }
+.load{
+    
+    width:100vw;
+    background-repeat: no-repeat;
+    height:100vh;
+    background-image: url(../../img/load.gif);
 
+    background-attachment: fixed;
+    background-position: center;
+}
 .select_sidebar select {
 	border: 2px solid #f0f0f0;
 	border-radius: 4px;	
@@ -53,8 +62,6 @@
         margin-bottom: 30px;
         text-decoration: none;
         
-
-
 }
 
 
@@ -149,56 +156,22 @@
 .container{
     
     display: flex;
-    flex-wrap: wrap;
-  
+    flex-wrap: wrap;  
     justify-content: space-between;  
     align-items: center;
     justify-content: center;
-   background-color: #f9f9f9;
+    background-color: #f9f9f9;
     background-repeat: no-repeat;
-    
-    
-
-
-
-}
-.search{
-
-    
-    background-color: rgb(255, 255, 255);
-    border: rgb(207, 203, 203) 1px solid;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    height: 45px;
-    width: 410px;
 
 }
 
-.btn_search{
-
-    height: 49px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: rgb(207, 203, 203) 1px solid;
-    width: 70px;
- 
-    cursor: pointer;
-    background-color:#f3eded;
-
-}
 
 .pagination{
     display: flex;
     list-style: none;
 }
 
-// border: 2px solid #f0f0f0;
-// 	border-radius: 4px;	
-//     height: 40px;
-// 	color: #777;
-// 	font-size: 12px;
-// 	padding: 10px;
-//     width:  80%;
+
 .pagination li{
     padding: 10px;
     border: 1px solid #f0f0f0;

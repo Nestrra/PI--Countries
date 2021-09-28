@@ -11,7 +11,9 @@ const getAllCountries  = async (req, res) => {
     try {
     
         if(!name){
-            const countries = await Country.findAll();
+            const countries = await Country.findAll({
+                include: TouristActivity,
+            });
             res.status(200).json(countries)
 
         }else{
@@ -24,8 +26,7 @@ const getAllCountries  = async (req, res) => {
                     }
                 },
                 include: TouristActivity,
-                
-            });
+                });
             console.log(countriesN)
 
             if(!countriesN[0]){

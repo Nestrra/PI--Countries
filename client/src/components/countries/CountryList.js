@@ -2,22 +2,24 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { fetchCountries } from '../../actions/Actions';
 import { Country } from './Country'
-import {Nav} from '../nav/Nav'
+import { Nav } from '../nav/Nav'
 
 
 
 export const CountryList = () => {
-    const {countries} = useSelector((state) => state.getCountries);
-  
-    const dispatch = useDispatch();
 
+    const { countries } = useSelector((state) => state.getCountries);
+
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(true)
+   
     const [currentPage, setcurrentState] = useState(1);
     const [countriesPerPage] = useState(10)
 
     const [pageLimit] = useState(7);
     const [maxPage, setmaxPage] = useState(7)
     const [minPage, setminPage] = useState(0);
-    
+
 
 
     const pages = [];
@@ -35,16 +37,16 @@ export const CountryList = () => {
     const handleNextButton = () => {
         setcurrentState(currentPage + 1);
 
-        if(currentPage +1 > maxPage){
-            setmaxPage(maxPage+pageLimit);
+        if (currentPage + 1 > maxPage) {
+            setmaxPage(maxPage + pageLimit);
             setminPage(minPage + pageLimit);
 
         }
     }
     const handlePrevButton = () => {
-        setcurrentState(currentPage -1);
+        setcurrentState(currentPage - 1);
 
-        if((currentPage - 1) % pageLimit === 0){
+        if ((currentPage - 1) % pageLimit === 0) {
             setmaxPage(maxPage - pageLimit);
             setminPage(minPage - pageLimit);
 
@@ -58,7 +60,7 @@ export const CountryList = () => {
 
     const renderPageNumber = pages.map((numbers) => {
 
-        if(numbers < maxPage+1 && numbers > minPage) {
+        if (numbers < maxPage + 1 && numbers > minPage) {
             return (
                 <li key={numbers}
                     id={numbers}
@@ -68,7 +70,7 @@ export const CountryList = () => {
                     {numbers}
                 </li>
             )
-        }else{
+        } else {
             return null;
         }
 
@@ -76,52 +78,65 @@ export const CountryList = () => {
 
     useEffect(() => {
         dispatch(fetchCountries())
+        setTimeout(() => { setLoading(false) }, 1000)
+
     }, [])
 
 
     return (
 
+
+
         <div>
-            <Nav/>
-        <div className="paginate_container">
+            <Nav />
+            <div className="paginate_container">
 
-        <div  className="container" >    
-            
-            {currentPages.map(country => (
+                <div className="container" >
+                    {loading  ?
+                        (
+                            <div className="load">
 
-                <Country
-                    id={country.id}
-                    name={country.name}
-                    image={country.image}
-                    continent={country.continent}
-                    population={country.population}
-                    key={country.name}
-                />
-                
-            ))}
+                            </div>
+                        ) :
+                        (
+                            currentPages.map(country => (
+
+                                <Country
+                                    id={country.id}
+                                    name={country.name}
+                                    image={country.image}
+                                    continent={country.continent}
+                                    population={country.population}
+                                    key={country.name}
+                                />
+                            ))
+                        ) 
+                        
+                    }
+
                 </div>
                 <ul className="pagination">
                     <li>
                         <button
                             onClick={handlePrevButton}
-                            disabled ={currentPage === pages[0] ? true : false}
-                            >
-                                anterior
-                            </button>
-                    </li>
-                {renderPageNumber}
-                    <li> <button
-                        onClick={handleNextButton}
-                        disabled ={currentPage === pages[pages.length - 1] ? true : false}
+                            disabled={currentPage === pages[0] ? true : false}
                         >
-                            siguiente
+                            anterior
                         </button>
                     </li>
-                
-                
-            </ul>
+                    {renderPageNumber}
+                    <li> <button
+                        onClick={handleNextButton}
+                        disabled={currentPage === pages[pages.length - 1] ? true : false}
+                    >
+                        siguiente
+                    </button>
+                    </li>
 
-        </div>
+
+                </ul>
+
+            </div>
         </div>
 
     )

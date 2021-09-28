@@ -76,25 +76,7 @@ export const Sidebar = () => {
 
                     </select>
                 </div>
-                <div className="title">
-                    <p >Filtrar por Actividad </p>
-                </div>
-                <div className="select_sidebar">
-                    <select
-                        onChange={handleSelect}
-
-                    >
-                      {
-                            countries.touristActivities?.map(e => (
-                                <>
-                                 <optio>{e.name}</optio>       
-
-                                </>
-                            ))
-                        }
-
-                    </select>
-                </div>
+            
 
                 <hr></hr>
                 <div className="title">

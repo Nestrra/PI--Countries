@@ -1,10 +1,11 @@
 import React, { useState} from 'react';
 import {useDispatch } from 'react-redux';
-import {searchCountry} from '../../actions/Actions'
+import {searchCountry, filterActivity, fetchCountries} from '../../actions/Actions'
 
 export const Search = () => {
 
 const [input, setInput] = useState("")
+const [inputAct, setInputAct] = useState("")    
 const dispatch = useDispatch();
 
 const handleClick = (event)=>{
@@ -13,10 +14,30 @@ const handleClick = (event)=>{
 
 }
 
-const onClickH = ()=>{
 
+const handleChanAct = (event)=>{
+
+    setInputAct(event.target.value)
+   
+
+}
+
+const onClickH = ()=>{
+  
     dispatch(searchCountry(input));
 
+}
+
+const onClickHandAct = ()=>{
+
+    fetchCountries();
+
+    setTimeout(() => {
+        dispatch(filterActivity(inputAct));
+    }, 200);
+  
+   
+    console.log(inputAct);
 }
 
     return (
@@ -32,6 +53,20 @@ const onClickH = ()=>{
             <button 
                 className="btn_search"
                 onClick = {()=>onClickH()}
+                > 
+                    Buscar
+            </button>
+            <input 
+                className="search"
+                placeholder="Buscar actividad..."
+                name="activi"
+                onChange={(event) => handleChanAct(event)}
+            >
+
+            </input>
+            <button 
+                className="btn_search"
+                onClick = {()=>onClickHandAct()}
                 > 
                     Buscar
             </button>

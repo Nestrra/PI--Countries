@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 
-export const Country = ({name, image, id, continent, population }) => {
+export const Country = ({name, image, id, continent }) => {
 
 
         return (

@@ -17,11 +17,15 @@ const createActivity = async (req, res)=>{
         
     });
 
-    for(c of countryId){
-        let country = await Country.findByPk(c)
+    
+        let country = await Country.findAll({ 
+            where:{
+                id: countryId
+            }
+        })
         console.log(country)
         activity.addCountry(country)
-    }
+    
     res.send(activity);
     console.log(activity)
  
