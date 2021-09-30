@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch} from 'react-redux';
 import { filterContinente, fetchCountries, orderAz, orderZa, orderPopulationAsc, orderPopulationDes } from '../../actions/Actions'
-import { Link } from "react-router-dom";
+
 
 
 export const Sidebar = () => {
@@ -43,7 +43,7 @@ export const Sidebar = () => {
             dispatch(filterContinente(continent))
         }
 
-    }, [continent]);
+    }, [continent, dispatch]);
 
 
     const handleSelect = ({ target }) => {
@@ -55,7 +55,7 @@ export const Sidebar = () => {
     return (
         <div>
             <aside className="countries__main-sidebar">
-                <Link className="icon_sidebar" to="/countries"><h2>PI <br /> COUNTRIES</h2></Link>
+                <a  className="icon_sidebar" href="/countries"><h2>PI <br /> COUNTRIES</h2></a>
                 <div className="title">
                     <p >Filtrar por continente</p>
                 </div>

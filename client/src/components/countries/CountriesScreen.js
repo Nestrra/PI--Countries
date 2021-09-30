@@ -1,8 +1,7 @@
 import React from 'react'
-
-
 import {CountryList} from './CountryList'
 import {Sidebar} from '../sideBar/Sidebar'
+import {Nav} from '../nav/Nav'
 
 
 export const CountriesScreen = () => {
@@ -13,7 +12,7 @@ export const CountriesScreen = () => {
             
             <Sidebar/>
           <main>
-                    
+                    <Nav/> 
                     <CountryList/>
            </main>        
         </div>

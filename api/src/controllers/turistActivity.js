@@ -30,7 +30,7 @@ const createActivity = async (req, res)=>{
     
 
     } catch (error) {
-        res.send(error)
+        console.error(error);
     } 
 }
 

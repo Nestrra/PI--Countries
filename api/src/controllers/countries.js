@@ -31,7 +31,7 @@ const getAllCountries = async (req, res) => {
 
             if (!countriesN[0]) {
 
-                res.status(404).send('No hay paises relacionados con el parametro de busqueda')
+                res.send('No hay paises relacionados con el parametro de busqueda')
 
 
             }
@@ -41,7 +41,7 @@ const getAllCountries = async (req, res) => {
         }
 
     } catch (error) {
-        res.send(error);
+        console.error(error);
     }
 
 }
@@ -65,7 +65,7 @@ const getCountryId = async (req, res) => {
 
     } catch (error) {
         
-        res.send(error);
+        console.error(error);
 
     }  
 

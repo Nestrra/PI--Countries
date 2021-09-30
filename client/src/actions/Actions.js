@@ -42,6 +42,7 @@ export const searchCountry = (countryName) => {
             })
 
         } catch (error) {
+            
 
         }
 

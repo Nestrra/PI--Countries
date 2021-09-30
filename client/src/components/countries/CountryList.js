@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { fetchCountries } from '../../actions/Actions';
 import { Country } from './Country'
-import { Nav } from '../nav/Nav'
 
 
 
@@ -12,7 +11,7 @@ export const CountryList = () => {
 
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(true)
-   
+
     const [currentPage, setcurrentState] = useState(1);
     const [countriesPerPage] = useState(10)
 
@@ -26,7 +25,7 @@ export const CountryList = () => {
 
     const indexOfLastPage = currentPage * countriesPerPage;
     const indexOfFirstPage = indexOfLastPage - countriesPerPage;
-    const currentPages = countries.slice(indexOfFirstPage, indexOfLastPage);
+    const currentPages = countries && countries.slice(indexOfFirstPage, indexOfLastPage);
 
     const handleClick = (event) => {
 
@@ -75,27 +74,31 @@ export const CountryList = () => {
         }
 
     })
-
+    
     useEffect(() => {
-        dispatch(fetchCountries())
+    
+       dispatch( fetchCountries())
         setTimeout(() => { setLoading(false) }, 1000)
 
-    }, [])
+    }, [dispatch])
+
+    if(typeof countries === 'string') {
+        return(<p>{countries}</p>)
+    }
 
 
-    return (
 
-
-
+    return countries && countries.length?(
+        
         <div>
-            <Nav />
+          {/* <Nav /> */}
             <div className="paginate_container">
 
                 <div className="container" >
                     {loading  ?
                         (
                             <div className="load">
-
+                                
                             </div>
                         ) :
                         (
@@ -139,6 +142,10 @@ export const CountryList = () => {
             </div>
         </div>
 
+    )
+    :
+    (
+        <p>La actividad no se encuentra</p>
     )
 }
 

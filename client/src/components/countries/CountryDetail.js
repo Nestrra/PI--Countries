@@ -18,7 +18,7 @@ export const CountryDetail = () => {
 
         dispatch(fetchCountriesDetail(id))
         setTimeout(() => { setLoading(false) }, 500)
-    }, [id]);
+    }, [id, dispatch]);
 
 
 
@@ -84,7 +84,4 @@ export const CountryDetail = () => {
         </div>
     )
 }
-{/* <p ><span>Nombre:</span> {e.name}</p>
-<p><span>Dificultad:</span> {e.difficulty} </p>
-<p><span>Duracion:</span> {e.duration} Hrs</p>
-<p><span>Duracion:</span> {e.season}</p> */}
+

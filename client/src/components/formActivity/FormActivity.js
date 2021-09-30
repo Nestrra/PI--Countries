@@ -23,7 +23,7 @@ export const FormActivity = () => {
 
 	useEffect(() => {
 		dispatch(fetchCountries())
-	}, [])
+	}, [dispatch])
 
 
 	const handleSubmit = async (e) => {
@@ -38,7 +38,7 @@ export const FormActivity = () => {
 				difficulty: "",
 				duration: "",
 				season: "",
-				countryId: null,
+				countryId: [],
 			})
 		}else{
 			alert("Los campos deben estar completos")
@@ -51,15 +51,15 @@ export const FormActivity = () => {
 
 			
 			return false;
-		}else if(formSate.difficulty === 0){
+		}else if(formSate.difficulty === ""){
 
 			return false;
 
-		}else if(formSate.duration === 0 ){
+		}else if(formSate.duration === "" ){
 			return false;
-		}else if(formSate.season === 0 ){
+		}else if(formSate.season === "" ){
 			return false;
-		}else if(formSate.countryId === null){
+		}else if(formSate.countryId === []){
 			return false
 		}
 			
@@ -91,7 +91,7 @@ export const FormActivity = () => {
 				<form id="form" className="form" onSubmit={handleSubmit}>
 					<div className="form-control">
 						<label >Nombre</label>
-						<input type="text" id="name" name="name" onChange={handleInputChange} value={formSate.name} />
+						<input  type="text" id="name" name="name" onChange={handleInputChange} value={formSate.name} />
 						
 						<small>Error message</small>
 					</div>
@@ -123,7 +123,7 @@ export const FormActivity = () => {
 
 					<div className="form-control">
 						<label>Duracion</label>
-						<input type="text" id="duracion" name="duration" onChange={handleInputChange} value={formSate.duration} />
+						<input  type="text" id="duracion" placeholder="Rango de 1 a 24 Horas" name="duration" onChange={handleInputChange} value={formSate.duration} />
 						<small>Debe ingresar un tiempo entre 1 y 24 </small>						
 					</div>
 
@@ -132,7 +132,7 @@ export const FormActivity = () => {
 						<select 
 							className="select-country"
 							name="countryId"
-							multiple={true}
+							multiple
 							value={formSate.countryId}
 							onChange={handleChangeSelect}>
 

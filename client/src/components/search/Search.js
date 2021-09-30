@@ -1,48 +1,48 @@
-import React, { useState} from 'react';
-import {useDispatch } from 'react-redux';
-import {searchCountry, filterActivity, fetchCountries} from '../../actions/Actions'
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { searchCountry, filterActivity } from '../../actions/Actions'
 
 export const Search = () => {
 
-const [input, setInput] = useState("")
-const [inputAct, setInputAct] = useState("")    
-const dispatch = useDispatch();
+    const [input, setInput] = useState("")
+    const [inputAct, setInputAct] = useState("")
+    const dispatch = useDispatch();
 
-const handleClick = (event)=>{
+    const handleClick = (event) => {
 
-    setInput(event.target.value)
+        setInput(event.target.value)
 
-}
+    }
 
 
-const handleChanAct = (event)=>{
+    const handleChanAct = (event) => {
 
-    setInputAct(event.target.value)
-   
+        setInputAct(event.target.value)
 
-}
 
-const onClickH = ()=>{
-  
-    dispatch(searchCountry(input));
+    }
 
-}
+    const onClickH = () => {
 
-const onClickHandAct = ()=>{
+        dispatch(searchCountry(input));
 
-    fetchCountries();
+    }
 
-    setTimeout(() => {
-        dispatch(filterActivity(inputAct));
-    }, 200);
-  
-   
-    console.log(inputAct);
-}
+    const onClickHandAct = () => {
+
+    
+
+        setTimeout(() => {
+            dispatch(filterActivity(inputAct));
+        }, 200);
+
+
+
+    }
 
     return (
         <div>
-            <input 
+            <input
                 className="search"
                 placeholder="Buscar pais..."
                 name="name"
@@ -50,13 +50,13 @@ const onClickHandAct = ()=>{
             >
 
             </input>
-            <button 
+            <button
                 className="btn_search"
-                onClick = {()=>onClickH()}
-                > 
-                    Buscar
+                onClick={() => onClickH()}
+            >
+                Buscar
             </button>
-            <input 
+            <input
                 className="search"
                 placeholder="Buscar actividad..."
                 name="activi"
@@ -64,11 +64,11 @@ const onClickHandAct = ()=>{
             >
 
             </input>
-            <button 
+            <button
                 className="btn_search"
-                onClick = {()=>onClickHandAct()}
-                > 
-                    Buscar
+                onClick={() => onClickHandAct()}
+            >
+                Buscar
             </button>
         </div>
     )
