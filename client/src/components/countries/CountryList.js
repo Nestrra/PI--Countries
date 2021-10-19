@@ -91,7 +91,7 @@ export const CountryList = () => {
     return countries && countries.length?(
         
         <div>
-          {/* <Nav /> */}
+        
             <div className="paginate_container">
 
                 <div className="container" >
@@ -145,7 +145,7 @@ export const CountryList = () => {
     )
     :
     (
-        <p>La actividad no se encuentra</p>
+        <h2 className="activityN">La actividad Buscada no se encuentra creada</h2>
     )
 }
 

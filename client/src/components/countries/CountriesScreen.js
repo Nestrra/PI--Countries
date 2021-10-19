@@ -11,10 +11,10 @@ export const CountriesScreen = () => {
         <div className = "countries_main-content">
             
             <Sidebar/>
-          <main>
+        <main>
                     <Nav/> 
                     <CountryList/>
-           </main>        
+        </main>        
         </div>
     )
 }

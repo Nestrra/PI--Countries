@@ -33,9 +33,6 @@ export const Sidebar = () => {
 
     }
 
-
-
-
     useEffect(() => {
         if (continent === 'todos') {
             dispatch(fetchCountries())

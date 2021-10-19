@@ -51,19 +51,19 @@ function getCountries(state = initialState, action) {
                 countries: Array.isArray(state.countries) && state.countries.filter((c) => { return c.touristActivities.some((a) => a.name === action.payload) })
             }
         }
-  
+
         case "ORDER_AZ": {
 
             return {
                 ...state,
-                countries:state.countries.sort((a, b) => a.name.localeCompare(b.name)    )
+                countries: state.countries.sort((a, b) => a.name.localeCompare(b.name))
             }
         }
         case "ORDER_ZA": {
 
             return {
                 ...state,
-                countries: state.countries.sort((b, a) => a.name.localeCompare(b.name)                   
+                countries: state.countries.sort((b, a) => a.name.localeCompare(b.name)
                 )
             }
         }
@@ -71,20 +71,15 @@ function getCountries(state = initialState, action) {
 
             return {
                 ...state,
-                countries: state.countries.sort(function(b, a) {
+                countries: state.countries.sort(function (b, a) {
                     if (a.population > b.population) {
                         return 1;
-                    }if(a.population < b.population){
+                    } if (a.population < b.population) {
                         return -1;
                     }
                     return null;
                 })
-                
-                
-                // state.countries.sort(function (b, a) {
-                //     if (a.population > b.population) return 1;
-                //     if (a.population < b.population) return -1;
-                // })
+
             }
         }
         case "ORDER_POPDES": {
@@ -96,10 +91,12 @@ function getCountries(state = initialState, action) {
                     if (a.population < b.population) return -1;
                     return 0;
                 })
-            
-            
+
+
             }
         }
+
+    
 
         default:
             return state;

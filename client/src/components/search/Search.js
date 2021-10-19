@@ -4,6 +4,7 @@ import { searchCountry, filterActivity } from '../../actions/Actions'
 
 export const Search = () => {
 
+
     const [input, setInput] = useState("")
     const [inputAct, setInputAct] = useState("")
     const dispatch = useDispatch();
@@ -19,7 +20,6 @@ export const Search = () => {
 
         setInputAct(event.target.value)
 
-
     }
 
     const onClickH = () => {
@@ -28,31 +28,31 @@ export const Search = () => {
 
     }
 
-    const onClickHandAct = () => {
+   
 
-    
+    const onClickHandAct = () => {
 
         setTimeout(() => {
             dispatch(filterActivity(inputAct));
         }, 200);
-
-
-
     }
 
     return (
         <div>
+
+              
+
             <input
                 className="search"
                 placeholder="Buscar pais..."
                 name="name"
-                onChange={(event) => handleClick(event)}
+                onChange={handleClick}
             >
 
             </input>
             <button
                 className="btn_search"
-                onClick={() => onClickH()}
+                onClick={onClickH}
             >
                 Buscar
             </button>
