@@ -17,7 +17,7 @@ export const CountryDetail = () => {
     useEffect(() => {
 
         dispatch(fetchCountriesDetail(id))
-        setTimeout(() => { setLoading(false) }, 500)
+        setTimeout(() => { setLoading(false) }, 100)
     }, [id, dispatch]);
 
 
@@ -76,10 +76,6 @@ export const CountryDetail = () => {
                     </>
                 )
             }
-
-
-
-
 
         </div>
     )

@@ -26,6 +26,7 @@ const getAllCountries = async (req, res) => {
                     }
                 },
                 include: TouristActivity,
+                
             });
 
 

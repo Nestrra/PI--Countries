@@ -91,12 +91,8 @@ function getCountries(state = initialState, action) {
                     if (a.population < b.population) return -1;
                     return 0;
                 })
-
-
             }
-        }
-
-    
+        }    
 
         default:
             return state;

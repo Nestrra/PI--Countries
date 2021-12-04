@@ -1,0 +1,64 @@
+:root {
+    --primario: #396EB0;
+    --blanco: #FFF;
+    --negro: #000000;
+    --fuentePrincipal: 'Poppins', sans-serif;
+}
+
+
+.paginate_container{
+    background-color:rgb(235, 228, 228);
+    height:100%;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.container{
+    
+        padding:20px;
+
+}
+
+
+@media (min-width: 800px) { 
+    .container{
+        display:grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            padding:30px;
+    
+    }
+}
+.pagination{
+
+   list-style: none;
+   display: flex;
+    margin-top: -15px;
+
+}
+.pagination li{
+
+padding: 10px;
+border: 1px solid rgb(184, 178, 178);
+list-style-type: none;
+cursor: pointer;
+
+
+}
+
+
+.pagination li button{
+
+   border: none;
+   color:var(--primario);
+   background-color:transparent;
+   font-weight: bold;
+    
+    }
+
+
+.pagination li.active{
+    background-color:var(--primario);
+}

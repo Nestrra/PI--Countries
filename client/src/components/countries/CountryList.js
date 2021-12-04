@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import { fetchCountries } from '../../actions/Actions';
 import { Country } from './Country'
+import './countriList.css'
 
 
 
@@ -74,31 +75,31 @@ export const CountryList = () => {
         }
 
     })
-    
+
     useEffect(() => {
-    
-       dispatch( fetchCountries())
+
+        dispatch(fetchCountries())
         setTimeout(() => { setLoading(false) }, 1000)
 
     }, [dispatch])
 
-    if(typeof countries === 'string') {
-        return(<p>{countries}</p>)
+    if (typeof countries === 'string') {
+        return (<p>{countries}</p>)
     }
 
 
 
-    return countries && countries.length?(
-        
+    return countries && countries.length ? (
+
         <div>
-        
+
             <div className="paginate_container">
 
                 <div className="container" >
-                    {loading  ?
+                    {loading ?
                         (
                             <div className="load">
-                                
+
                             </div>
                         ) :
                         (
@@ -113,8 +114,8 @@ export const CountryList = () => {
                                     key={country.name}
                                 />
                             ))
-                        ) 
-                        
+                        )
+
                     }
 
                 </div>
@@ -135,18 +136,16 @@ export const CountryList = () => {
                         siguiente
                     </button>
                     </li>
-
-
                 </ul>
 
             </div>
         </div>
 
     )
-    :
-    (
-        <h2 className="activityN">La actividad Buscada no se encuentra creada</h2>
-    )
+        :
+        (
+            <h2 className="activityN">La actividad Buscada no se encuentra creada</h2>
+        )
 }
 
 

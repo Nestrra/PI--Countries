@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch} from 'react-redux';
+import './sidebar.css'
 import { filterContinente, fetchCountries, orderAz, orderZa, orderPopulationAsc, orderPopulationDes } from '../../actions/Actions'
 
 
@@ -50,14 +51,14 @@ export const Sidebar = () => {
     }
 
     return (
-        <div>
+        <>
             <aside className="countries__main-sidebar">
                 <a  className="icon_sidebar" href="/countries"><h2>PI <br /> COUNTRIES</h2></a>
-                <div className="title">
-                    <p >Filtrar por continente</p>
+                <div className="">
+                    <p className='title' >Filtrar por continente</p>
                 </div>
-                <div className="select_sidebar">
-                    <select
+                <div className="ñ">
+                    <select className="select_sidebar"
                         onChange={handleSelect} >
 
                         <option value="todos">Todos</option>
@@ -71,27 +72,27 @@ export const Sidebar = () => {
                     </select>
                 </div>
                 <hr></hr>
-                <div className="title">
-                    <p>Ordenar Por nombre:</p>
+                <div className="">
+                    <p className='title'>Ordenar Por nombre:</p>
                 </div>
-                <div className="select_sidebar">
-                    <button className="mt-5" onClick={handleOrderAz}>A-Z</button>
+                <div className="ñ">
+                    <button className="btn" onClick={handleOrderAz}>A-Z</button>
                 </div>
-                <div className="select_sidebar">
-                    <button className="mt-5" onClick={handleOrderZa} >Z-A</button>
+                <div className="ñ">
+                    <button className="btn" onClick={handleOrderZa} >Z-A</button>
                 </div>
-                <div className="title">
-                    <p>Ordenar Por poblacion:</p>
+                <div className="">
+                    <p className='title'>Ordenar Por poblacion:</p>
                 </div>
-                <div className="select_sidebar">
-                    <button onClick={handleOrderPopAsc} className="mt-5" >↑ - ↓</button>
+                <div className="ñ">
+                    <button onClick={handleOrderPopAsc} className="btn" >↑ - ↓</button>
                 </div>
-                <div className="select_sidebar">
-                    <button onClick={handleOrderPopDes} className="mt-5">↓ - ↑</button>
+                <div className="ñ">
+                    <button onClick={handleOrderPopDes} className="btn">↓ - ↑</button>
                 </div>
 
             </aside>
-        </div>
+        </>
     )
 }
 

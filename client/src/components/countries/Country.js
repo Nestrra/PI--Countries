@@ -1,27 +1,27 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import './country.css'
 
 
 export const Country = ({name, image, id, continent }) => {
 
 
         return (
-            <div>
+            <>
                 <Link className="link" to={`/country/${id}`}>
                 <div className="card">
-                    <div className="flaf">
-                        <img className="" alt="" src={image}/>
+                    <div className='img'>
+                    <img src={image} alt=""/>
                     </div>
-                    <div className="info">
-                            <h2 className="name">{name}</h2>
-                        <div className="content">
-                            <p className="text"><span className="span">Codigo pais: </span>  {id}</p>                        
-                            <p className="text"><span className="span">Continente:</span>  {continent}</p>
-                        </div>                    
-                    </div>
+               
+                <div className='card-producto'>
+                    <h3>{name}</h3>
+                    <p>Continente: <span>{continent}</span></p>
+                
+                </div>
                 </div>
                 
                 </Link>
-            </div>
+            </>
         )
     }

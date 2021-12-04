@@ -40,7 +40,7 @@ export const searchCountry = (countryName) => {
                 type: "SEARCH_COUNTRY",
                 payload: res.data,
             })
-
+ 
         } catch (error) {
             
 

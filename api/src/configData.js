@@ -9,36 +9,35 @@ async function insertDataCountries() {
   try {
     {
       // //Hacemos la solicitud a la api
-      // const url = 'https://restcountries.com/v2/all'
-      // const resApi = await axios.get(url);
-    
+       const url = 'https://restcountries.com/v3/all'
+       const resApi = await axios.get(url);
+      
       // //extraemos datos que necesitamos para llenar base de datos
-      // const getDataApi = resApi.data.map((e) => {
-      const countriesA =  countries.map(e =>{
-          
+       const getDataApi = resApi.data.map((e) => {
+     // const countriesA =  countries.map(e =>{
+        
                     
           return {
 
-          id: e.alpha3Code,
-          name: e.name,
-          image: e.flag,
-          continent: e.region,
-          capital: e.capital,
+          id: e.cca3,
+          name: e.name.common ? e.name.common : 'sin nombre',
+          image: e.flags.find((e)=>e.includes('svg')),
+          continent: e.continents ? e.continents[0] : 'sin continent',
+          capital: e.capital ? e.capital[0] : 'sin capital',
           subregion: e.subregion,
-          area: e.area,
-          population: e.population,
+          area: Math.floor(e.area),
+          population:  Math.floor (e.population),
+
 
         };
       }
       
       )   
+     
+        for(const c of getDataApi ){
 
-      
-        for(const c of countriesA ){
 
               await Country.create(c)
-
-
         }
     
     }

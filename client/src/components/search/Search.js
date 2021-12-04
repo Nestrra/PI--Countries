@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import './search.css'
 import { searchCountry, filterActivity } from '../../actions/Actions'
 
 export const Search = () => {
@@ -10,11 +11,8 @@ export const Search = () => {
     const dispatch = useDispatch();
 
     const handleClick = (event) => {
-
         setInput(event.target.value)
-
     }
-
 
     const handleChanAct = (event) => {
 
@@ -28,7 +26,7 @@ export const Search = () => {
 
     }
 
-   
+
 
     const onClickHandAct = () => {
 
@@ -38,38 +36,42 @@ export const Search = () => {
     }
 
     return (
-        <div>
+        <div className='search__content'>
 
-              
+            <div className='search__input'>
+                <input
+                    className="search"
+                    placeholder="Buscar pais..."
+                    name="name"
+                    onChange={handleClick}
+                >
 
-            <input
-                className="search"
-                placeholder="Buscar pais..."
-                name="name"
-                onChange={handleClick}
-            >
+                </input>
+                <button
+                    className="btn_search"
+                    onClick={onClickH}
+                >
+                    Buscar
+                </button>
+            </div>
 
-            </input>
-            <button
-                className="btn_search"
-                onClick={onClickH}
-            >
-                Buscar
-            </button>
-            <input
-                className="search"
-                placeholder="Buscar actividad..."
-                name="activi"
-                onChange={(event) => handleChanAct(event)}
-            >
+            <div className="search__input">
+                <input
+                    className="search"
+                    placeholder="Buscar actividad..."
+                    name="activi"
+                    onChange={(event) => handleChanAct(event)}
+                >
 
-            </input>
-            <button
-                className="btn_search"
-                onClick={() => onClickHandAct()}
-            >
-                Buscar
-            </button>
+                </input>
+                <button
+                    className="btn_search"
+                    onClick={() => onClickHandAct()}
+                >
+                    Buscar
+                </button>
+            </div>
+
         </div>
     )
 }

@@ -18,7 +18,7 @@ export const FormActivity = () => {
 		season: "",
 		countryId: []
 
-	})	
+	})
 
 
 	useEffect(() => {
@@ -29,7 +29,7 @@ export const FormActivity = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		if(isValid()){
+		if (isValid()) {
 			alert("Actividad creada correctamente")
 
 			await axios.post("http://localhost:3001/activity", formSate);
@@ -40,30 +40,30 @@ export const FormActivity = () => {
 				season: "",
 				countryId: [],
 			})
-		}else{
+		} else {
 			alert("Los campos deben estar completos")
-		}	
+		}
 	};
 
-	const isValid = ()=>{
+	const isValid = () => {
 
-		if(formSate.name.length === 0){
+		if (formSate.name.length === 0) {
 
-			
-			return false;
-		}else if(formSate.difficulty === ""){
 
 			return false;
+		} else if (formSate.difficulty === "") {
 
-		}else if(formSate.duration === "" ){
 			return false;
-		}else if(formSate.season === "" ){
+
+		} else if (formSate.duration === "") {
 			return false;
-		}else if(formSate.countryId === []){
+		} else if (formSate.season === "") {
+			return false;
+		} else if (formSate.countryId === []) {
 			return false
 		}
-			
-			return true
+
+		return true
 	}
 
 	const handleInputChange = ({ target }) => {
@@ -91,8 +91,8 @@ export const FormActivity = () => {
 				<form id="form" className="form" onSubmit={handleSubmit}>
 					<div className="form-control">
 						<label >Nombre</label>
-						<input  type="text" id="name" name="name" onChange={handleInputChange} value={formSate.name} />
-						
+						<input type="text" id="name" name="name" onChange={handleInputChange} value={formSate.name} />
+
 						<small>Error message</small>
 					</div>
 					<div className="form-control">
@@ -123,13 +123,13 @@ export const FormActivity = () => {
 
 					<div className="form-control">
 						<label>Duracion</label>
-						<input  type="text" id="duracion" placeholder="Rango de 1 a 24 Horas" name="duration" onChange={handleInputChange} value={formSate.duration} />
-						<small>Debe ingresar un tiempo entre 1 y 24 </small>						
+						<input type="text" id="duracion" placeholder="Rango de 1 a 24 Horas" name="duration" onChange={handleInputChange} value={formSate.duration} />
+						<small>Debe ingresar un tiempo entre 1 y 24 </small>
 					</div>
 
 					<div className="form-control">
 						<label>Seleccionar pais</label>
-						<select 
+						<select
 							className="select-country"
 							name="countryId"
 							multiple

@@ -1,0 +1,21 @@
+
+
+@media (min-width: 800px) { 
+    .countries_content{
+        display: grid;
+        grid-template-columns: repeat(2, 15% 85%);
+}
+
+}
+
+@media (min-width: 800px) { 
+    .countries__main-content{
+        display: grid;
+        grid-template-rows: repeat(2, 15% 85%);      
+    }
+}
+
+
+
+
+
