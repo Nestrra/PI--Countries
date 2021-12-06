@@ -1,0 +1,46 @@
+.detail_container{
+    background-color:   rgb(255, 255, 255);
+  
+}
+
+.contenedor{
+
+    margin-top: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding:25px;    
+    border: 1px solid rgb(228, 220, 220);
+    box-shadow: 0px 0px 7px rgb(204, 200, 200);
+}
+
+.bandera{
+    max-width: 450px;
+}
+
+.detail_body{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+}
+
+@media (min-width: 800px) { 
+    .detail_img{
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap:20px;
+    
+    }
+}
+
+.detailLink{
+
+    text-decoration: none;
+    background-color:#396EB0;
+    color:white;
+    padding:8px;
+    
+
+}
